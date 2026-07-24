@@ -1,3 +1,62 @@
+const desktopStyles = document.createElement('link');
+desktopStyles.rel = 'stylesheet';
+desktopStyles.href = 'desktop.css';
+document.head.appendChild(desktopStyles);
+
+const sidebar = document.createElement('aside');
+sidebar.className = 'desktop-sidebar';
+sidebar.setAttribute('aria-label', 'Navegación de escritorio');
+sidebar.innerHTML = `
+  <div class="desktop-brand"><span class="brand-mark"></span><span>PADEL</span></div>
+  <nav class="desktop-nav">
+    <button class="nav-item active" data-target="home">
+      <svg viewBox="0 0 24 24"><path d="M3 11 12 3l9 8v9a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg><span>Inicio</span>
+    </button>
+    <button class="nav-item" data-target="discover">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><span>Buscar partidos</span>
+    </button>
+    <button class="nav-item" data-target="activity">
+      <svg viewBox="0 0 24 24"><path d="M4 19V9m5 10V5m5 14v-7m5 7V3"/></svg><span>Actividad</span>
+    </button>
+    <button class="nav-item create-desktop" data-target="create">
+      <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Crear partido</span>
+    </button>
+  </nav>
+  <div class="desktop-user">
+    <button class="avatar" aria-label="Perfil de Walter">W</button>
+    <div><strong>Walter</strong><span>6.ª categoría</span></div>
+  </div>
+`;
+
+document.body.prepend(sidebar);
+
+const rail = document.createElement('aside');
+rail.className = 'desktop-rail';
+rail.setAttribute('aria-label', 'Resumen del próximo partido');
+rail.innerHTML = `
+  <section class="rail-card">
+    <p class="eyebrow">Próximo partido</p>
+    <h3>Jueves · 21:00</h3>
+    <p>Pádel Center · Cancha 3</p>
+    <div class="rail-progress"><span></span></div>
+    <div class="rail-caption"><span>3 confirmados</span><span>Falta 1</span></div>
+    <div class="rail-players">
+      <div class="rail-player"><span class="player-photo player-one">W</span><div><strong>Walter</strong><span>Organiza</span></div></div>
+      <div class="rail-player"><span class="player-photo player-two">M</span><div><strong>Martín</strong><span>Confirmado</span></div></div>
+      <div class="rail-player"><span class="player-photo player-three">L</span><div><strong>Lucas</strong><span>Confirmado</span></div></div>
+      <div class="rail-player"><span class="player-photo missing">+</span><div><strong>Lugar libre</strong><span>6.ª–7.ª</span></div></div>
+    </div>
+    <button class="primary-button rail-action" data-open="match">Completar partido</button>
+  </section>
+  <section class="rail-card rail-tip">
+    <p class="eyebrow">Sugerencia</p>
+    <strong>Compartilo antes de las 18:00</strong>
+    <p>Tus invitaciones reciben más respuestas durante la tarde.</p>
+  </section>
+`;
+
+document.body.appendChild(rail);
+
 const views = [...document.querySelectorAll('.view')];
 const navItems = [...document.querySelectorAll('.nav-item')];
 const modal = document.querySelector('#successModal');
@@ -66,4 +125,4 @@ document.querySelectorAll('[data-toast]').forEach(button => {
   button.addEventListener('click', () => showToast(button.dataset.toast));
 });
 
-console.info('App Padel prototype loaded — branch: prototype');
+console.info('App Padel prototype loaded — responsive mobile and desktop views');
