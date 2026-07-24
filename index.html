@@ -11,6 +11,10 @@
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="desktop.css" />
   <link rel="stylesheet" href="splash.css" />
+  <style>
+    .debug-splash-reset{position:fixed;right:8px;bottom:8px;z-index:80;width:24px;height:24px;border:1px solid rgba(255,255,255,.08);border-radius:8px;background:rgba(4,10,8,.18);color:rgba(255,255,255,.2);font:600 10px/1 monospace;cursor:pointer;opacity:.35;backdrop-filter:blur(8px);transition:opacity .2s,background .2s,color .2s}
+    .debug-splash-reset:hover,.debug-splash-reset:focus-visible{opacity:.9;background:rgba(12,27,21,.82);color:rgba(200,255,66,.9);outline:none}
+  </style>
 </head>
 <body>
   <div class="ambient ambient-one"></div>
@@ -154,6 +158,17 @@
     </div>
   </div>
   <div class="toast" id="toast"></div>
+  <button class="debug-splash-reset" id="debugSplashReset" type="button" title="Volver a mostrar la pantalla de carga" aria-label="Volver a mostrar la pantalla de carga">↻</button>
   <script src="app.js"></script>
+  <script>
+    document.getElementById('debugSplashReset').addEventListener('click', () => {
+      try {
+        sessionStorage.removeItem('app-padel:splash-shown');
+      } catch (error) {
+        console.warn('No se pudo limpiar el estado de la pantalla de carga.', error);
+      }
+      window.location.reload();
+    });
+  </script>
 </body>
 </html>
