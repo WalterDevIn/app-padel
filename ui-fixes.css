@@ -28,11 +28,28 @@
   outline:none;
 }
 
-.match-search{
-  margin-bottom:24px!important;
+html{
+  scrollbar-gutter:stable;
+  scrollbar-color:rgba(150,166,157,.38) transparent;
+  scrollbar-width:thin;
 }
-.view[data-view='discover'] .filter-row{
-  margin-top:0;
+html::-webkit-scrollbar{width:10px}
+html::-webkit-scrollbar-track{background:#050b08}
+html::-webkit-scrollbar-thumb{
+  background:rgba(150,166,157,.28);
+  border:2px solid #050b08;
+  border-radius:999px;
+}
+html.splash-expected,
+html.splash-expected body{
+  overflow:hidden!important;
+}
+
+.match-search{
+  margin-bottom:0!important;
+}
+.match-search + .filter-row{
+  margin-top:24px!important;
 }
 
 @media (min-width:980px){
