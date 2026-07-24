@@ -1,0 +1,47 @@
+.player-photo.has-photo{
+  position:relative;
+  overflow:hidden;
+  color:transparent!important;
+  background:rgba(255,255,255,.08)!important;
+}
+.player-photo.has-photo img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  display:block;
+}
+.player-photo.has-photo::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.12);
+  pointer-events:none;
+}
+.court-player.has-photo{
+  overflow:hidden;
+  color:transparent!important;
+  background:rgba(255,255,255,.08)!important;
+}
+.court-player.has-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+.avatar.has-photo{
+  position:relative;
+  overflow:hidden;
+  color:transparent!important;
+  background:rgba(255,255,255,.08)!important;
+}
+.avatar.has-photo img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
