@@ -1,3 +1,68 @@
+const splashStyles = document.createElement('link');
+splashStyles.rel = 'stylesheet';
+splashStyles.href = 'splash.css';
+document.head.appendChild(splashStyles);
+
+function initializeSplash() {
+  const splashKey = 'app-padel:splash-shown';
+  const forceSplash = new URLSearchParams(window.location.search).get('splash') === '1';
+  let hasBeenShown = false;
+
+  try {
+    hasBeenShown = sessionStorage.getItem(splashKey) === 'true';
+  } catch (error) {
+    console.warn('Session storage is unavailable; splash will use the safe fallback.', error);
+  }
+
+  if (hasBeenShown && !forceSplash) return;
+
+  const splash = document.createElement('div');
+  splash.className = 'splash-screen';
+  splash.setAttribute('role', 'status');
+  splash.setAttribute('aria-label', 'Abriendo App Padel');
+  splash.innerHTML = `
+    <button class="splash-skip" type="button" aria-label="Saltar presentación">Saltar</button>
+    <div class="splash-content">
+      <div class="splash-logo" aria-hidden="true"><span class="splash-logo-mark"></span></div>
+      <h1 class="splash-wordmark">PADEL</h1>
+      <p class="splash-tagline">Armá el partido. Conseguí los cuatro.</p>
+      <div class="splash-loader" aria-hidden="true"><span></span></div>
+    </div>
+  `;
+
+  document.body.prepend(splash);
+  document.body.classList.add('splash-active');
+
+  try {
+    sessionStorage.setItem(splashKey, 'true');
+  } catch (error) {
+    // The splash remains fully functional without persistent session storage.
+  }
+
+  let dismissed = false;
+  let automaticDismissal;
+
+  const dismissSplash = () => {
+    if (dismissed) return;
+    dismissed = true;
+    clearTimeout(automaticDismissal);
+    splash.classList.add('is-leaving');
+    document.body.classList.remove('splash-active');
+    document.removeEventListener('keydown', handleEscape);
+    window.setTimeout(() => splash.remove(), 620);
+  };
+
+  const handleEscape = event => {
+    if (event.key === 'Escape') dismissSplash();
+  };
+
+  splash.querySelector('.splash-skip').addEventListener('click', dismissSplash);
+  document.addEventListener('keydown', handleEscape);
+  automaticDismissal = window.setTimeout(dismissSplash, 1650);
+}
+
+initializeSplash();
+
 const desktopStyles = document.createElement('link');
 desktopStyles.rel = 'stylesheet';
 desktopStyles.href = 'desktop.css';
@@ -125,4 +190,4 @@ document.querySelectorAll('[data-toast]').forEach(button => {
   button.addEventListener('click', () => showToast(button.dataset.toast));
 });
 
-console.info('App Padel prototype loaded — responsive mobile and desktop views');
+console.info('App Padel prototype loaded — responsive views with session splash');
