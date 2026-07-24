@@ -11,9 +11,9 @@
     }
   }
 
-  if (!shouldShowSplash) return;
-
-  document.documentElement.classList.add('splash-expected');
+  if (shouldShowSplash) {
+    document.documentElement.classList.add('splash-expected');
+  }
 
   const releaseScrollLock = () => {
     if (!document.body) return;
@@ -34,6 +34,23 @@
       attributes: true,
       attributeFilter: ['class']
     });
+
+    const resetButton = document.querySelector('#debugSplashReset');
+    resetButton?.addEventListener('click', event => {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+
+      try {
+        sessionStorage.removeItem(splashKey);
+      } catch (error) {
+        console.warn('No se pudo limpiar el estado de la pantalla de carga.', error);
+      }
+
+      const url = new URL(window.location.href);
+      url.searchParams.set('splash', '1');
+      window.location.replace(url.toString());
+    }, { capture: true });
+
     releaseScrollLock();
   }, { once: true });
 })();
