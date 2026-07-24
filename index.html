@@ -11,10 +11,6 @@
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="desktop.css" />
   <link rel="stylesheet" href="splash.css" />
-  <style>
-    .debug-splash-reset{position:fixed;right:8px;bottom:8px;z-index:80;width:24px;height:24px;border:1px solid rgba(255,255,255,.08);border-radius:8px;background:rgba(4,10,8,.18);color:rgba(255,255,255,.2);font:600 10px/1 monospace;cursor:pointer;opacity:.35;backdrop-filter:blur(8px);transition:opacity .2s,background .2s,color .2s}
-    .debug-splash-reset:hover,.debug-splash-reset:focus-visible{opacity:.9;background:rgba(12,27,21,.82);color:rgba(200,255,66,.9);outline:none}
-  </style>
 </head>
 <body>
   <div class="ambient ambient-one"></div>
@@ -23,150 +19,45 @@
   <main class="app-shell" aria-label="Prototipo de App Padel">
     <header class="topbar">
       <button class="avatar" aria-label="Abrir perfil">W</button>
-      <div class="brand">
-        <span class="brand-mark"></span>
-        <span>PADEL</span>
-      </div>
-      <button class="icon-button" aria-label="Notificaciones">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg>
-        <span class="notification-dot"></span>
-      </button>
+      <div class="brand"><span class="brand-mark"></span><span>PADEL</span></div>
+      <button class="icon-button" aria-label="Notificaciones"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg><span class="notification-dot"></span></button>
     </header>
 
     <section class="view active" data-view="home">
-      <div class="welcome">
-        <p class="eyebrow">Viernes 24 de julio</p>
-        <h1>Buenas, Walter.</h1>
-        <p>Tu próximo partido está casi completo.</p>
-      </div>
-
+      <div class="welcome"><p class="eyebrow">Viernes 24 de julio</p><h1>Buenas, Walter.</h1><p>Tu próximo partido está casi completo.</p></div>
       <article class="hero-match card">
-        <div class="hero-topline">
-          <span class="status-pill urgent"><i></i> Falta 1 jugador</span>
-          <button class="more-button" aria-label="Más opciones">•••</button>
-        </div>
-        <div class="hero-date">
-          <div class="date-block"><strong>30</strong><span>JUL</span></div>
-          <div>
-            <h2>Partido del jueves</h2>
-            <p>21:00 · 90 minutos</p>
-          </div>
-        </div>
-        <div class="court-row">
-          <div class="court-icon">
-            <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="4" y="6" width="24" height="20" rx="4"/><path d="M16 6v20M4 16h24"/></svg>
-          </div>
-          <div><strong>Pádel Center</strong><span>Av. Mitre 1240 · Cancha 3</span></div>
-          <button class="round-arrow" aria-label="Ver ubicación">↗</button>
-        </div>
-        <div class="players-row">
-          <div class="player-stack">
-            <span class="player-photo player-one">W</span>
-            <span class="player-photo player-two">M</span>
-            <span class="player-photo player-three">L</span>
-            <span class="player-photo missing">+1</span>
-          </div>
-          <div class="player-copy"><strong>3 de 4 confirmados</strong><span>Categoría 6.ª–7.ª</span></div>
-        </div>
+        <div class="hero-topline"><span class="status-pill urgent"><i></i> Falta 1 jugador</span><button class="more-button" aria-label="Más opciones">•••</button></div>
+        <div class="hero-date"><div class="date-block"><strong>30</strong><span>JUL</span></div><div><h2>Partido del jueves</h2><p>21:00 · 90 minutos</p></div></div>
+        <div class="court-row"><div class="court-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="4" y="6" width="24" height="20" rx="4"/><path d="M16 6v20M4 16h24"/></svg></div><div><strong>Pádel Center</strong><span>Av. Mitre 1240 · Cancha 3</span></div><button class="round-arrow" aria-label="Ver ubicación">↗</button></div>
+        <div class="players-row"><div class="player-stack"><span class="player-photo player-one">W</span><span class="player-photo player-two">M</span><span class="player-photo player-three">L</span><span class="player-photo missing">+1</span></div><div class="player-copy"><strong>3 de 4 confirmados</strong><span>Categoría 6.ª–7.ª</span></div></div>
         <button class="primary-button" data-open="match">Buscar cuarto jugador <span>→</span></button>
         <div class="split-info"><span>$8.000 por persona</span><span>Reserva confirmada</span></div>
       </article>
-
-      <div class="section-heading">
-        <div><p class="eyebrow">Esta semana</p><h2>Tus partidos</h2></div>
-        <button class="text-button">Ver todos</button>
-      </div>
-
-      <div class="mini-match-list">
-        <article class="mini-match card" data-open="match">
-          <div class="mini-date"><strong>27</strong><span>LUN</span></div>
-          <div class="mini-copy"><strong>Partido con el grupo</strong><span>20:30 · Arena Padel</span></div>
-          <span class="status-pill complete">Completo</span>
-        </article>
-        <article class="mini-match card">
-          <div class="mini-date"><strong>02</strong><span>AGO</span></div>
-          <div class="mini-copy"><strong>Partido abierto</strong><span>18:00 · Sin cancha</span></div>
-          <span class="status-pill waiting">2 lugares</span>
-        </article>
-      </div>
-
-      <section class="insight-card card">
-        <div class="insight-icon">✓</div>
-        <div><strong>Tu grupo juega mejor los jueves</strong><p>Es el día con más confirmaciones y menos bajas.</p></div>
-      </section>
+      <div class="section-heading"><div><p class="eyebrow">Esta semana</p><h2>Tus partidos</h2></div><button class="text-button">Ver todos</button></div>
+      <div class="mini-match-list"><article class="mini-match card" data-open="match"><div class="mini-date"><strong>27</strong><span>LUN</span></div><div class="mini-copy"><strong>Partido con el grupo</strong><span>20:30 · Arena Padel</span></div><span class="status-pill complete">Completo</span></article><article class="mini-match card"><div class="mini-date"><strong>02</strong><span>AGO</span></div><div class="mini-copy"><strong>Partido abierto</strong><span>18:00 · Sin cancha</span></div><span class="status-pill waiting">2 lugares</span></article></div>
+      <section class="insight-card card"><div class="insight-icon">✓</div><div><strong>Tu grupo juega mejor los jueves</strong><p>Es el día con más confirmaciones y menos bajas.</p></div></section>
     </section>
 
-    <section class="view" data-view="discover">
-      <div class="page-title"><p class="eyebrow">Cerca tuyo</p><h1>Partidos abiertos</h1><p>Encontrá un partido compatible con tu nivel y horario.</p></div>
-      <div class="filter-row"><button class="chip active">Todos</button><button class="chip">Hoy</button><button class="chip">6.ª–7.ª</button><button class="chip">A menos de 5 km</button></div>
-      <div class="open-list">
-        <article class="open-match card">
-          <div class="open-header"><span class="status-pill urgent"><i></i> Falta 1</span><span>1,8 km</span></div>
-          <h3>Partido parejo en Mitre</h3><p>Hoy · 22:00 · Match Point</p>
-          <div class="open-footer"><div class="player-stack small"><span class="player-photo player-two">M</span><span class="player-photo player-three">L</span><span class="player-photo player-four">A</span></div><div><strong>6.ª categoría</strong><span>$7.500 por persona</span></div><button class="secondary-button">Ver</button></div>
-        </article>
-        <article class="open-match card">
-          <div class="open-header"><span class="status-pill waiting">2 lugares</span><span>3,2 km</span></div>
-          <h3>Domingo de pádel</h3><p>Domingo · 17:30 · La Red</p>
-          <div class="open-footer"><div class="player-stack small"><span class="player-photo player-one">J</span><span class="player-photo player-four">F</span></div><div><strong>7.ª–8.ª</strong><span>$6.000 por persona</span></div><button class="secondary-button">Ver</button></div>
-        </article>
-      </div>
-    </section>
+    <section class="view" data-view="discover"><div class="page-title"><p class="eyebrow">Cerca tuyo</p><h1>Partidos abiertos</h1><p>Encontrá un partido compatible con tu nivel y horario.</p></div><div class="filter-row"><button class="chip active">Todos</button><button class="chip">Hoy</button><button class="chip">6.ª–7.ª</button><button class="chip">A menos de 5 km</button></div><div class="open-list"><article class="open-match card"><div class="open-header"><span class="status-pill urgent"><i></i> Falta 1</span><span>1,8 km</span></div><h3>Partido parejo en Mitre</h3><p>Hoy · 22:00 · Match Point</p><div class="open-footer"><div class="player-stack small"><span class="player-photo player-two">M</span><span class="player-photo player-three">L</span><span class="player-photo player-four">A</span></div><div><strong>6.ª categoría</strong><span>$7.500 por persona</span></div><button class="secondary-button">Ver</button></div></article><article class="open-match card"><div class="open-header"><span class="status-pill waiting">2 lugares</span><span>3,2 km</span></div><h3>Domingo de pádel</h3><p>Domingo · 17:30 · La Red</p><div class="open-footer"><div class="player-stack small"><span class="player-photo player-one">J</span><span class="player-photo player-four">F</span></div><div><strong>7.ª–8.ª</strong><span>$6.000 por persona</span></div><button class="secondary-button">Ver</button></div></article></div></section>
 
-    <section class="view create-view" data-view="create">
-      <div class="page-title"><p class="eyebrow">Nuevo encuentro</p><h1>Creá el partido</h1><p>Los demás podrán confirmar desde un enlace, sin instalar nada.</p></div>
-      <form class="prototype-form card">
-        <label><span>Nombre del partido</span><input value="Partido del jueves" /></label>
-        <div class="form-grid"><label><span>Fecha</span><input type="date" value="2026-07-30" /></label><label><span>Hora</span><input type="time" value="21:00" /></label></div>
-        <label><span>Cancha o lugar</span><input value="Pádel Center · Cancha 3" /></label>
-        <div class="form-grid"><label><span>Categoría</span><select><option>6.ª–7.ª</option></select></label><label><span>Precio total</span><input value="$32.000" /></label></div>
-        <div class="guest-preview"><span class="guest-icon">W</span><div><strong>Vos ya estás adentro</strong><p>Invitá a tres personas o publicá lugares libres.</p></div></div>
-        <button type="button" class="primary-button" data-created="true">Crear y compartir <span>→</span></button>
-      </form>
-    </section>
+    <section class="view create-view" data-view="create"><div class="page-title"><p class="eyebrow">Nuevo encuentro</p><h1>Creá el partido</h1><p>Los demás podrán confirmar desde un enlace, sin instalar nada.</p></div><form class="prototype-form card"><label><span>Nombre del partido</span><input value="Partido del jueves" /></label><div class="form-grid"><label><span>Fecha</span><input type="date" value="2026-07-30" /></label><label><span>Hora</span><input type="time" value="21:00" /></label></div><label><span>Cancha o lugar</span><input value="Pádel Center · Cancha 3" /></label><div class="form-grid"><label><span>Categoría</span><select><option>6.ª–7.ª</option></select></label><label><span>Precio total</span><input value="$32.000" /></label></div><div class="guest-preview"><span class="guest-icon">W</span><div><strong>Vos ya estás adentro</strong><p>Invitá a tres personas o publicá lugares libres.</p></div></div><button type="button" class="primary-button" data-created="true">Crear y compartir <span>→</span></button></form></section>
 
-    <section class="view" data-view="activity">
-      <div class="page-title"><p class="eyebrow">Tu recorrido</p><h1>Actividad</h1><p>Una lectura simple de tus partidos, sin convertir el juego en una planilla.</p></div>
-      <article class="level-card card">
-        <span class="level-badge">6.ª</span><div><p>Nivel habitual</p><h2>Competitivo social</h2><span>Basado en 12 partidos registrados</span></div>
-      </article>
-      <div class="stats-grid"><article class="stat card"><strong>12</strong><span>Partidos</span></article><article class="stat card"><strong>67%</strong><span>Asistencia</span></article><article class="stat card"><strong>8</strong><span>Compañeros</span></article></div>
-      <article class="card chart-card"><div class="section-heading compact"><div><p class="eyebrow">Últimos 30 días</p><h2>Frecuencia</h2></div><strong>+2</strong></div><div class="bars"><span style="height:30%"></span><span style="height:55%"></span><span style="height:38%"></span><span style="height:76%"></span><span style="height:92%"></span><span style="height:68%"></span><span style="height:84%"></span></div></article>
-    </section>
+    <section class="view" data-view="activity"><div class="page-title"><p class="eyebrow">Tu recorrido</p><h1>Actividad</h1><p>Una lectura simple de tus partidos, sin convertir el juego en una planilla.</p></div><article class="level-card card"><span class="level-badge">6.ª</span><div><p>Nivel habitual</p><h2>Competitivo social</h2><span>Basado en 12 partidos registrados</span></div></article><div class="stats-grid"><article class="stat card"><strong>12</strong><span>Partidos</span></article><article class="stat card"><strong>67%</strong><span>Asistencia</span></article><article class="stat card"><strong>8</strong><span>Compañeros</span></article></div><article class="card chart-card"><div class="section-heading compact"><div><p class="eyebrow">Últimos 30 días</p><h2>Frecuencia</h2></div><strong>+2</strong></div><div class="bars"><span style="height:30%"></span><span style="height:55%"></span><span style="height:38%"></span><span style="height:76%"></span><span style="height:92%"></span><span style="height:68%"></span><span style="height:84%"></span></div></article></section>
 
-    <section class="view match-view" data-view="match">
-      <button class="back-button" data-back="home">← Volver</button>
-      <div class="match-heading"><span class="status-pill urgent"><i></i> Falta 1 jugador</span><h1>Partido del jueves</h1><p>Jueves 30 de julio · 21:00</p></div>
-      <div class="court-visual"><div class="court-line vertical"></div><div class="court-line horizontal"></div><span class="court-player p1">W</span><span class="court-player p2">M</span><span class="court-player p3">L</span><span class="court-player p4">?</span></div>
-      <section class="card roster-card"><div class="section-heading compact"><div><p class="eyebrow">Jugadores</p><h2>3 confirmados</h2></div><span>6.ª–7.ª</span></div><div class="roster"><div><span class="player-photo player-one">W</span><strong>Walter</strong><em>Organiza</em></div><div><span class="player-photo player-two">M</span><strong>Martín</strong><em>Confirmado</em></div><div><span class="player-photo player-three">L</span><strong>Lucas</strong><em>Confirmado</em></div><div class="empty-player"><span class="player-photo missing">+</span><strong>Lugar libre</strong><em>Buscando</em></div></div></section>
-      <section class="card share-card"><div><span class="share-icon">↗</span><strong>Compartí el lugar libre</strong><p>El enlace abre una invitación simple para confirmar.</p></div><button class="primary-button" data-share="true">Compartir por WhatsApp</button><button class="secondary-button full" data-toast="Jugadores cercanos avisados">Avisar a jugadores cercanos</button></section>
-    </section>
+    <section class="view match-view" data-view="match"><button class="back-button" data-back="home">← Volver</button><div class="match-heading"><span class="status-pill urgent"><i></i> Falta 1 jugador</span><h1>Partido del jueves</h1><p>Jueves 30 de julio · 21:00</p></div><div class="court-visual"><div class="court-line vertical"></div><div class="court-line horizontal"></div><span class="court-player p1">W</span><span class="court-player p2">M</span><span class="court-player p3">L</span><span class="court-player p4">?</span></div><section class="card roster-card"><div class="section-heading compact"><div><p class="eyebrow">Jugadores</p><h2>3 confirmados</h2></div><span>6.ª–7.ª</span></div><div class="roster"><div><span class="player-photo player-one">W</span><strong>Walter</strong><em>Organiza</em></div><div><span class="player-photo player-two">M</span><strong>Martín</strong><em>Confirmado</em></div><div><span class="player-photo player-three">L</span><strong>Lucas</strong><em>Confirmado</em></div><div class="empty-player"><span class="player-photo missing">+</span><strong>Lugar libre</strong><em>Buscando</em></div></div></section><section class="card share-card"><div><span class="share-icon">↗</span><strong>Compartí el lugar libre</strong><p>El enlace abre una invitación simple para confirmar.</p></div><button class="primary-button" data-share="true">Compartir por WhatsApp</button><button class="secondary-button full" data-toast="Jugadores cercanos avisados">Avisar a jugadores cercanos</button></section></section>
 
-    <nav class="bottom-nav" aria-label="Navegación principal">
-      <button class="nav-item active" data-target="home"><svg viewBox="0 0 24 24"><path d="M3 11 12 3l9 8v9a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg><span>Inicio</span></button>
-      <button class="nav-item" data-target="discover"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><span>Buscar</span></button>
-      <button class="nav-item create-nav" data-target="create"><span class="plus">+</span><span>Crear</span></button>
-      <button class="nav-item" data-target="activity"><svg viewBox="0 0 24 24"><path d="M4 19V9m5 10V5m5 14v-7m5 7V3"/></svg><span>Actividad</span></button>
-      <button class="nav-item" data-target="profile"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c.7-5 3.3-7 8-7s7.3 2 8 7"/></svg><span>Perfil</span></button>
-    </nav>
+    <nav class="bottom-nav" aria-label="Navegación principal"><button class="nav-item active" data-target="home"><svg viewBox="0 0 24 24"><path d="M3 11 12 3l9 8v9a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg><span>Inicio</span></button><button class="nav-item" data-target="discover"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><span>Buscar</span></button><button class="nav-item create-nav" data-target="create"><span class="plus">+</span><span>Crear</span></button><button class="nav-item" data-target="activity"><svg viewBox="0 0 24 24"><path d="M4 19V9m5 10V5m5 14v-7m5 7V3"/></svg><span>Actividad</span></button><button class="nav-item" data-target="profile"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c.7-5 3.3-7 8-7s7.3 2 8 7"/></svg><span>Perfil</span></button></nav>
   </main>
 
-  <div class="modal" id="successModal" aria-hidden="true">
-    <div class="modal-card">
-      <div class="success-mark">✓</div><p class="eyebrow">Partido creado</p><h2>Ahora conseguí los cuatro</h2><p>La invitación ya está lista para compartir por WhatsApp.</p>
-      <button class="primary-button" data-close-modal>Ver partido <span>→</span></button>
-    </div>
-  </div>
+  <div class="modal" id="successModal" aria-hidden="true"><div class="modal-card"><div class="success-mark">✓</div><p class="eyebrow">Partido creado</p><h2>Ahora conseguí los cuatro</h2><p>La invitación ya está lista para compartir por WhatsApp.</p><button class="primary-button" data-close-modal>Ver partido <span>→</span></button></div></div>
   <div class="toast" id="toast"></div>
   <button class="debug-splash-reset" id="debugSplashReset" type="button" title="Volver a mostrar la pantalla de carga" aria-label="Volver a mostrar la pantalla de carga">↻</button>
   <script src="app.js"></script>
+  <script src="flow-fix.js"></script>
   <script>
     document.getElementById('debugSplashReset').addEventListener('click', () => {
-      try {
-        sessionStorage.removeItem('app-padel:splash-shown');
-      } catch (error) {
-        console.warn('No se pudo limpiar el estado de la pantalla de carga.', error);
-      }
+      try { sessionStorage.removeItem('app-padel:splash-shown'); }
+      catch (error) { console.warn('No se pudo limpiar el estado de la pantalla de carga.', error); }
       window.location.reload();
     });
   </script>
